@@ -1,11 +1,17 @@
 import Head from 'next/head';
 import styles from '../styles/Home.module.css';
-import { forServer, forClient } from '../things';
+import { forClient } from '../things';
 
-export function getServerSideProps() {
-  console.log(forServer);
-  return { props: {} };
-}
+// open localhost:3000 and check the browser console
+// it will display createForServer()
+//
+// this means we are shipping createForServer() to the client,
+// even thought it is never being used by it.
+//
+// question: is it somehow possible to not ship that part to the client?
+//
+// one option would be splitting the things file into two separate files.
+// but can it also be done while keeping them in the same file?
 
 export default function Home() {
   console.log(forClient);
